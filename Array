@@ -65,7 +65,9 @@ students.forEach(function (student,index,students) {
 
 students.forEach((student) => {console.log(student)})
 
-De esta manera accedemos a la información de la lista de estudiantes, si quisieramos acceder a alguna informacion en especifico como la edad de los estudiantes, simplemente accedo con anotacion de puntos, como a continuación:
+De esta manera accedemos a la información de la lista de estudiantes, si quisieramos acceder 
+a alguna informacion en especifico como la edad de los estudiantes, simplemente accedo con 
+anotacion de puntos, como a continuación:
 
 students.forEach((student) => {console.log(student.age)})
 
@@ -74,7 +76,8 @@ students.forEach((student) => {console.log(student.age)})
 
 // MÉTODO Map
 
-//Map crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos, podríamos usarlo de la siguiente manera
+//Map crea un nuevo array con los resultados de la llamada a la función indicada aplicados 
+a cada uno de sus elementos, podríamos usarlo de la siguiente manera
 
 const result = students.map(function(student){
   return student
@@ -113,7 +116,10 @@ const names = students.map(student => {
 
 console.log(names)
 
-// Pero si Students fuera un objeto mucho más grande, hacer lo que hicimos anteriormente no sería muy práctico, tendríamos que pasar todos los datos pertenecientes al objeto, para eso tenemos algo llamado Spread Operator, nos permite distribuir los elementos de un arreglo/objeto para asignarlos a una variable/constante/función.
+// Pero si Students fuera un objeto mucho más grande, hacer lo que hicimos anteriormente 
+no sería muy práctico, tendríamos que pasar todos los datos pertenecientes al objeto, para 
+eso tenemos algo llamado Spread Operator, nos permite distribuir los elementos de un 
+arreglo/objeto para asignarlos a una variable/constante/función.
 
 const names = students.map(student => {
   return {
@@ -124,7 +130,9 @@ const names = students.map(student => {
 
 console.log(names)
 
-// Al mismo momento que estamos copiando los elementos con el Spread Operator podemos también modficar elementos al mismo tiempo, pero debemos escribir el elemento a modificar DESPUES del spread operator, recordar, primero se copian los elemento y despúes se modifican.
+// Al mismo momento que estamos copiando los elementos con el Spread Operator podemos 
+también modficar elementos al mismo tiempo, pero debemos escribir el elemento a modificar 
+DESPUES del spread operator, recordar, primero se copian los elemento y despúes se modifican.
 
 //entonces, queremos cambiar el course de cada estudiante:
 
@@ -137,7 +145,8 @@ const names = students.map(student => {
 
 console.log(names)
 
-//Nota: map NO altera o muta los datos del objeto(arreglo) inicial, en este ejemplo con el que estamos trabajando, students es el arreglo inicial, y names es el arreglo retornado por map.
+//Nota: map NO altera o muta los datos del objeto(arreglo) inicial, en este ejemplo con el 
+que estamos trabajando, students es el arreglo inicial, y names es el arreglo retornado por map.
 
 //El código anterior puede escribirse de una forma más resumida:
 
@@ -147,7 +156,9 @@ const names = students.map(student => ({
 }))
 console.log(names) 
 
-// Nos ahorramos el return, pero debemos ubicar los parentesis antes de abrir las llaves para que el programa no interprente lo que está dentro del objeto como el cuerpo de la función. revisar esta parte https://youtu.be/qqR1enOceVg
+// Nos ahorramos el return, pero debemos ubicar los parentesis antes de abrir las llaves 
+para que el programa no interprente lo que está dentro del objeto como el cuerpo de la función. 
+revisar esta parte si hay dudas: https://youtu.be/qqR1enOceVg
 
 // Podemos usar map las veces que queramos
 
@@ -163,7 +174,8 @@ console.log(doubleage)
 
 // MÉTODO Filter 
 
-// Filter crea un nuevo array con todos los elementos que cumplan la condición implementada por la función dada.
+// Filter crea un nuevo array con todos los elementos que cumplan la condición 
+implementada por la función dada.
 
 const result = students.filter(function(student) {
   if (student.course === `Web Development`) {
@@ -190,7 +202,8 @@ console.log(result)
 
 // MÉTODO Reduce
 
-// Supongamos que quisieramos crear un método que nos sume las edades de todos los estudiantes, primero observemos como resolveríamos esto con un ciclo for
+// Supongamos que quisieramos crear un método que nos sume las edades de todos 
+los estudiantes, primero observemos como resolveríamos esto con un ciclo for
 
 let total = 0
 
@@ -232,7 +245,8 @@ const developers = [
   },
 ];
 
-// Queremos un arreglo de las habilidades de todos los developers, usamos reduce, ya que con él podemos reducir estos valores en uno
+// Queremos un arreglo de las habilidades de todos los developers, usamos reduce, ya 
+que con él podemos reducir estos valores en uno
 
 const result = developers.reduce(function (allSkills, student) {
   return Array.from(new Set([...allSkills, ...student.skills]))
@@ -240,16 +254,22 @@ const result = developers.reduce(function (allSkills, student) {
 
 console.log(result) 
 
-// Set añade nuevos elementos a un conjunto, pero si ya están repetidos no los va a duplicar, sin embargo, esto No genera un nuevo arreglo, usamos Array para formar el array con los elemnetos unidos. 
+// Set añade nuevos elementos a un conjunto, pero si ya están repetidos no los 
+va a duplicar, sin embargo, esto No genera un nuevo arreglo, usamos Array para 
+formar el array con los elemnetos unidos. 
 
-//En resumidas lo que hicimos fué copiar los elementos en un arreglo, los pasamos por un set y los convertimos en otro para que se limpien y finalmente los convertimos de nuevo en un arreglo  
+//En resumidas lo que hicimos fué copiar los elementos en un arreglo, los pasamos 
+por un set y los convertimos en otro para que se limpien y finalmente los convertimos 
+de nuevo en un arreglo.
 
 
 
 
 // MÉTODO Sort
 
-//  ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado, veamos el siguiente ejemplo, queremos ordenar la lista de estudiantes de menor a mayor según su edad:
+// ordena los elementos de un arreglo (array) localmente y devuelve el arreglo ordenado, 
+veamos el siguiente ejemplo, queremos ordenar la lista de estudiantes de menor a mayor 
+según su edad:
 
 const sortedStudents = students.sort(function(first,second) {
   if (first.age > second.age) {
@@ -262,25 +282,28 @@ const sortedStudents = students.sort(function(first,second) {
 console.log(sortedStudents) 
 
 // Podemos resumir el código anterior
-                                                        //Ope.Ternario
+                                                           //Ope.Ternario
 const sortedStudents = students.sort((a,b) => a.age > b.age ? 1 : -1)
 console.log(sortedStudents) 
 
 console.log(sortedStudents) 
 
-// Otra forma de validar es restando los valores, si un valor al restarlo con otro me da un residuo, significa que el primer valor es mayor
+// Otra forma de validar es restando los valores, si un valor al restarlo con otro me da 
+un residuo, significa que el primer valor es mayor
 
 const sortedStudents = students.sort((a,b) => a.age - b.age)
 
 console.log(sortedStudents) 
 
-// Cuando queremos ordenar números con sort, sort no ordena los números de forma numérica sino de forma alfabética, los ordena como caracteres, veamos un ejemplo
+// Cuando queremos ordenar números con sort, sort no ordena los números de forma numérica 
+sino de forma alfabética, los ordena como caracteres, veamos un ejemplo:
 
 const numbers = [10,30,1000,100]
 
 console.log(numbers.sort()) // [10,100,1000,30] 
 
-// Si quisieramos ordenarlos de una manera correcta tendríamos que utilizar una formula como la de sortedStudents
+// Si quisieramos ordenarlos de una manera correcta tendríamos que utilizar una formula 
+como la de sortedStudents
 
 const numbers = [10,30,1000,100]
 
@@ -291,7 +314,8 @@ console.log(numbers.sort((a,b) => a - b)) // [10,30,100,1000]
 
 // MÉTODO Find
 
-// Find nos permite buscar un elemento de un arreglo, digamos que queremos buscar un elemento dentro un arreglo, por ejemplo, queremos todo el objeto donde el nombre sea John
+// Find nos permite buscar un elemento de un arreglo, digamos que queremos buscar un 
+elemento dentro un arreglo, por ejemplo, queremos todo el objeto donde el nombre sea John
 
 const result = students.find(function(student) {
   if(student.name === "John") {
@@ -305,14 +329,16 @@ console.log(result)
 
 const result = students.find(student => student.name === "John") 
    
-// Cuanto no encuentra el resultado, sea por una mala escritura del código o porque simplemente no existe el elemento a buscar, retorna undefined
+// Cuanto no encuentra el resultado, sea por una mala escritura del código o porque 
+simplemente no existe el elemento a buscar, retorna undefined
 
 
 
 
 // MÉTODO Some
 
-// Some sólo retorna un valor boolean dependiendo de si se cumple la condición o no, para este ejemplo queremos saber el estudiante con mayoría de edad
+// Some sólo retorna un valor boolean dependiendo de si se cumple la condición o no, 
+para este ejemplo queremos saber el estudiante con mayoría de edad
 
 const result = students.some(function(student) {
   if (student.age > 20) {
@@ -339,17 +365,22 @@ console.log(result) // true
 
 // MÉTODO Every
 
-// El método Every tiene la misma función que el método some, sin embargo, retornará true o false SÓLO si todos los objetos cumplen con la condicion puesta
+// El método Every tiene la misma función que el método some, sin embargo, retornará 
+true o false SÓLO si TODOS los objetos cumplen con la condicion puesta
 
 const result = students.every(student => student.age === 20)
 
-console.log(result) // Nos retornará false porque no cumple con la condición, No todos los estudiantes tienen 20 años, basta con que un objeto no cumpla la condicion para que retorne FALSE 
+console.log(result) // Nos retornará false porque no cumple con la condición, No todos 
+los estudiantes tienen 20 años, basta con que un objeto no cumpla la condicion para que 
+retorne FALSE 
 
 // Podríamos usarlo no sólo para validar datos que incluyan números
 
 const result = students.every(student => student.name.includes(`J`)) 
 
-// Lo anterior retornará false porque hay un sólo estudiante que no tiene la letra J en su nombre, puede modificar el nombre del estudiante para observar el true que debería ser retornado si todos tuvieran la J en sus nombres.
+// Lo anterior retornará false porque hay un sólo estudiante que no tiene la letra J en su nombre, 
+puede modificar el nombre del estudiante para observar el true que debería ser retornado si todos 
+tuvieran la J en sus nombres.
 
 
 
